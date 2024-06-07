@@ -1,9 +1,6 @@
 package br.edu.up.modelo;
 
 public class Viagem {
-    
-
-
 
     private String destino;
     private String descricao;
