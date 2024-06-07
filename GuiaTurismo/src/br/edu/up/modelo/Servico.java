@@ -1,6 +1,5 @@
 package br.edu.up.modelo;
 
-import java.util.List;
 
 public class Servico {
     private int id;
@@ -37,6 +36,10 @@ public class Servico {
     }
     public void setPreco(double preco) {
         this.preco = preco;
+    }
+    @Override
+    public String toString() {
+        return "Servico [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", preco=" + preco + "]";
     }
 
     
