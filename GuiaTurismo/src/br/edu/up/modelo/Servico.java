@@ -2,22 +2,15 @@ package br.edu.up.modelo;
 
 
 public class Servico {
-    private int id;
+   
     private String nome;
     private String descricao;
     private double preco;
     
-    public Servico(int id, String nome, String descricao, double preco) {
-        this.id = id;
+    public Servico( String nome, String descricao, double preco) {
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
-    }
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
     }
     public String getNome() {
         return nome;
@@ -39,7 +32,7 @@ public class Servico {
     }
     @Override
     public String toString() {
-        return "Servico [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", preco=" + preco + "]";
+        return "Servico [nome=" + nome + ", descricao=" + descricao + ", preco=" + preco + "]";
     }
 
     

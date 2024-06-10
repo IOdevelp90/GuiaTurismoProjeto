@@ -1,13 +1,17 @@
 package br.edu.up.telas;
-import java.util.Scanner;
 
 import java.util.List;
 import java.util.Scanner;
+
+import br.edu.up.controle.ControleClientes;
+import br.edu.up.modelo.Cliente;
 import java.util.ArrayList;
+
+import java.util.Scanner;
 
 public class CapyturApp {
     int opcao;
-
+    ControleClientes controleClientes = new ControleClientes();
     private Scanner scanner = new Scanner(System.in);
 
     public void iniciar() {
@@ -55,9 +59,9 @@ public class CapyturApp {
         System.out.println("Digite sua senha: ");
         String senha = scanner.next();
 
-        boolean sucesso = controleUsuarios.login(username, senha);
+        boolean sucesso = controleClientes.login(username, senha);
         if (sucesso) {
-            isAdmin = controleUsuarios.isAdmin(username);
+            isAdmin = controleClientes.isAdmin(username);
             System.out.println("Login realizado com sucesso!");
             mostrarMenuInicial();
         } else {
@@ -65,5 +69,24 @@ public class CapyturApp {
         }
     }
 
-}
+    private void registrar() {
+        System.out.println("=================================");
+        System.out.println("            Registrar            ");
+        System.out.println("=================================");
+        System.out.println("Digite seu nome: ");
+        String nome = scanner.next();
+
+        System.out.println("Digite seu username: ");
+        String username = scanner.next();
+
+        System.out.println("Digite sua senha: ");
+        String senha = scanner.next();
+
+        System.out.println("Você deseja registrar como administrador? (S/N): ");
+        boolean isAdmin = scanner.next().equalsIgnoreCase("S");
+
+        controleClientes.registrar(nome, username, senha, isAdmin);
+        System.out.println("Registro realizado com sucesso!");
+    }
+
 }

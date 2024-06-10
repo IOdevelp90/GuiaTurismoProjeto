@@ -7,11 +7,11 @@ import java.util.List;
 import br.edu.up.modelo.Avaliacao;
 import br.edu.up.modelo.Postagem;
 
-public class ControleComunidade {
+public class ControleDeComunidade {
     private List<Postagem> postagems=new ArrayList<>();
     private List<Avaliacao> avaliacoes=new ArrayList<>();
 
-    public ControleComunidade(List<Postagem> postagems, List<Avaliacao>avaliacoes) {
+    public ControleDeComunidade(List<Postagem> postagems, List<Avaliacao>avaliacoes) {
         this.postagems = postagems;
         this.avaliacoes = avaliacoes;
     }
