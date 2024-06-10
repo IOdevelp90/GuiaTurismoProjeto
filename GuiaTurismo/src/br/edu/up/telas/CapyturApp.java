@@ -56,7 +56,7 @@ public class CapyturApp {
         System.out.println("Digite sua senha: ");
         String senha = scanner.next();
 
-        boolean sucesso = controleUsuarios.login(username, senha);
+        boolean sucesso = controleCliente.login(username, senha);
         if (sucesso) {
             isAdmin = controleUsuarios.isAdmin(username);
             System.out.println("Login realizado com sucesso!");
