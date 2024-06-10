@@ -2,13 +2,16 @@ package br.edu.up.telas;
 
 import java.util.List;
 import java.util.Scanner;
+
+import br.edu.up.controle.ControleClientes;
+import br.edu.up.modelo.Cliente;
 import java.util.ArrayList;
 
 import java.util.Scanner;
 
 public class CapyturApp {
     int opcao;
-
+    ControleClientes controleClientes = new ControleClientes();
     private Scanner scanner = new Scanner(System.in);
 
     public void iniciar() {
@@ -56,9 +59,9 @@ public class CapyturApp {
         System.out.println("Digite sua senha: ");
         String senha = scanner.next();
 
-        boolean sucesso = controleCliente.login(username, senha);
+        boolean sucesso = controleClientes.login(username, senha);
         if (sucesso) {
-            isAdmin = controleUsuarios.isAdmin(username);
+            isAdmin = controleClientes.isAdmin(username);
             System.out.println("Login realizado com sucesso!");
             mostrarMenuInicial();
         } else {
@@ -82,7 +85,7 @@ public class CapyturApp {
         System.out.println("Você deseja registrar como administrador? (S/N): ");
         boolean isAdmin = scanner.next().equalsIgnoreCase("S");
 
-        controleDeCliente.registrar(nome, username, senha, isAdmin);
+        controleClientes.registrar(nome, username, senha, isAdmin);
         System.out.println("Registro realizado com sucesso!");
     }
 
