@@ -1,11 +1,11 @@
 package br.edu.up.modelo;
 
-public class Profissionais {
+public class Profissional {
     private String tipo;
     private String nome;
     private String especialidade;
 
-    public Profissionais(String tipo, String nome, String especialidade) {
+    public Profissional(String tipo, String nome, String especialidade) {
         this.tipo = tipo;
         this.nome = nome;
         this.especialidade = especialidade;

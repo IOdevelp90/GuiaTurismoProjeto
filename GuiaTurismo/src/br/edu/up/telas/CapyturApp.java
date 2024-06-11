@@ -2,6 +2,7 @@ package br.edu.up.telas;
 
 import br.edu.up.controle.ControleClientes;
 import br.edu.up.controle.ControleComunidade;
+import br.edu.up.controle.ControleDeServicos;
 import br.edu.up.modelo.Servico;
 
 import java.util.List;
@@ -12,6 +13,7 @@ public class CapyturApp {
     int opcao;
 
     ControleComunidade controleComunidade = new ControleComunidade();
+    ControleDeServicos controleDeServicos = new ControleDeServicos();
 
     ControleClientes controleClientes = new ControleClientes();
     private Scanner scanner = new Scanner(System.in);
@@ -22,7 +24,7 @@ public class CapyturApp {
         do {
             System.out.println(" ");
             System.out.println("=================================");
-            System.out.println("       Bem-vindo ao Capytur!     ");
+            System.out.println(" Bem-vindo ao Capytur! ");
             System.out.println("=================================");
             System.out.println("Escolha a opção desejada: ");
             System.out.println("1 - Login");
@@ -53,7 +55,7 @@ public class CapyturApp {
     private void login() {
 
         System.out.println("=================================");
-        System.out.println("              Login              ");
+        System.out.println(" Login ");
         System.out.println("=================================");
         System.out.println("Digite seu username: ");
         String username = scanner.next();
@@ -73,7 +75,7 @@ public class CapyturApp {
 
     private void registrar() {
         System.out.println("=================================");
-        System.out.println("            Registrar            ");
+        System.out.println(" Registrar ");
         System.out.println("=================================");
         System.out.println("Digite seu nome: ");
         String nome = scanner.next();
@@ -97,7 +99,7 @@ public class CapyturApp {
         do {
             System.out.println(" ");
             System.out.println("=================================");
-            System.out.println("         Menu Inicial - Capytur  ");
+            System.out.println(" Menu Inicial - Capytur ");
             System.out.println("=================================");
             System.out.println("Escolha a opção desejada: ");
             System.out.println("1 - Comunidade");
@@ -155,7 +157,7 @@ public class CapyturApp {
         do {
             System.out.println(" ");
             System.out.println("=================================");
-            System.out.println("        Comunidade - Capytur     ");
+            System.out.println(" Comunidade - Capytur ");
             System.out.println("=================================");
             System.out.println("Escolha a opção desejada: ");
             System.out.println("1 - Adicionar Postagem");
@@ -184,7 +186,7 @@ public class CapyturApp {
 
     private void adicionarPostagem() {
         System.out.println("=================================");
-        System.out.println("       Adicionar Postagem        ");
+        System.out.println(" Adicionar Postagem ");
         System.out.println("=================================");
         System.out.println("Digite o título da postagem: ");
         String titulo = scanner.next();
@@ -198,7 +200,7 @@ public class CapyturApp {
 
     private void adicionarAvaliacao() {
         System.out.println("=================================");
-        System.out.println("       Adicionar Avaliação       ");
+        System.out.println(" Adicionar Avaliação ");
         System.out.println("=================================");
         System.out.println("Digite o título da avaliação: ");
         String titulo = scanner.next();
@@ -215,7 +217,7 @@ public class CapyturApp {
 
     private void procurarViagens() {
         System.out.println("=================================");
-        System.out.println("       Procurar Viagens          ");
+        System.out.println(" Procurar Viagens ");
         System.out.println("=================================");
         System.out.println("Procurar Viagens - Em construção...");
     }
@@ -226,7 +228,7 @@ public class CapyturApp {
         do {
             System.out.println(" ");
             System.out.println("=================================");
-            System.out.println("          Serviços - Capytur     ");
+            System.out.println(" Serviços - Capytur ");
             System.out.println("=================================");
             System.out.println("Escolha a opção desejada: ");
             System.out.println("1 - Contratar Guia de Turismo");
@@ -259,7 +261,7 @@ public class CapyturApp {
 
     private void contratarGuia() {
         System.out.println("=================================");
-        System.out.println("      Contratar Guia de Turismo  ");
+        System.out.println(" Contratar Guia de Turismo ");
         System.out.println("=================================");
         System.out.println("Digite o nome do guia: ");
         String nome = scanner.next();
@@ -267,27 +269,27 @@ public class CapyturApp {
         System.out.println("Digite a especialidade do guia: ");
         String especialidade = scanner.next();
 
-        controleServicos.contratarProfissional("Guia de Turismo", nome, especialidade);
+        controleDeServicos.contratarProfissional(nome, especialidade);
         System.out.println("Guia de Turismo contratado com sucesso!");
     }
 
     private void contratarProfessor() {
         System.out.println("=================================");
-        System.out.println("       Contratar Professor       ");
+        System.out.println(" Contratar Professor ");
         System.out.println("=================================");
         System.out.println("Digite o nome do professor: ");
         String nome = scanner.next();
 
         System.out.println("Digite a especialidade do professor: ");
-        String materia = scanner.next();
+        String especialidade = scanner.next();
 
-        controleServicos.contratarProfissional("Professor", nome, materia);
+        controleDeServicos.contratarProfissional(nome, especialidade);
         System.out.println("Professor contratado com sucesso!");
     }
 
     private void contratarFotografo() {
         System.out.println("=================================");
-        System.out.println("       Contratar Fotógrafo       ");
+        System.out.println(" Contratar Fotógrafo ");
         System.out.println("=================================");
         System.out.println("Digite o nome do fotógrafo: ");
         String nome = scanner.next();
@@ -295,7 +297,7 @@ public class CapyturApp {
         System.out.println("Digite a especialidade do fotógrafo: ");
         String especialidade = scanner.next();
 
-        controleServicos.contratarProfissional("Fotógrafo", nome, especialidade);
+        controleDeServicos.contratarProfissional(nome, especialidade);
         System.out.println("Fotógrafo contratado com sucesso!");
     }
 
@@ -305,7 +307,7 @@ public class CapyturApp {
         do {
             System.out.println(" ");
             System.out.println("=================================");
-            System.out.println("       Gerenciar Usuários        ");
+            System.out.println(" Gerenciar Usuários ");
             System.out.println("=================================");
             System.out.println("Escolha a opção desejada: ");
             System.out.println("1 - Adicionar Usuário");
@@ -338,7 +340,7 @@ public class CapyturApp {
 
     private void adicionarUsuario() {
         System.out.println("=================================");
-        System.out.println("       Adicionar Usuário         ");
+        System.out.println(" Adicionar Usuário ");
         System.out.println("=================================");
         System.out.println("Digite o nome do usuário: ");
         String nome = scanner.next();
@@ -352,38 +354,38 @@ public class CapyturApp {
         System.out.println("O usuário é um administrador? (S/N): ");
         boolean isAdmin = scanner.next().equalsIgnoreCase("S");
 
-        controleUsuarios.registrar(nome, username, senha, isAdmin);
+        controleClientes.registrar(nome, username, senha, isAdmin);
         System.out.println("Usuário adicionado com sucesso!");
     }
 
     private void removerUsuario() {
         System.out.println("=================================");
-        System.out.println("       Remover Usuário           ");
+        System.out.println(" Remover Usuário ");
         System.out.println("=================================");
         System.out.println("Digite o username do usuário a ser removido: ");
         String username = scanner.next();
 
-        controleUsuarios.removerUsuario(username);
+        controleClientes.removerCliente(username);
         System.out.println("Usuário removido com sucesso!");
     }
 
     private void listarUsuarios() {
         System.out.println("=================================");
-        System.out.println("         Listar Usuários         ");
+        System.out.println(" Listar Usuários ");
         System.out.println("=================================");
         System.out.println("Usuários registrados: ");
-        for (String username : controleUsuarios.listarUsuarios()) {
+        for (String username : controleClientes.listarClientes()) {
             System.out.println(username);
         }
     }
 
-private void gerenciarProfissionais() {
+    private void gerenciarProfissionais() {
         int opcao;
 
         do {
             System.out.println(" ");
             System.out.println("=================================");
-            System.out.println("   Gerenciar Profissionais       ");
+            System.out.println(" Gerenciar Profissionais ");
             System.out.println("=================================");
             System.out.println("Escolha a opção desejada: ");
             System.out.println("1 - Adicionar Profissional");
@@ -410,8 +412,8 @@ private void gerenciarProfissionais() {
                     break;
                 case 5:
                     System.out.println("Voltando ao Menu Inicial...");
-                    break
-                    default:
+                    break;
+                default:
                     System.out.println("Opção inválida!");
                     break;
             }
@@ -420,10 +422,10 @@ private void gerenciarProfissionais() {
 
     private void listarProfissionais() {
         System.out.println("=================================");
-        System.out.println("   Lista de Profissionais        ");
+        System.out.println(" Lista de Profissionais ");
         System.out.println("=================================");
         System.out.println("Profissionais registrados: ");
-        List<String> profissionais = controleServicos.listarProfissionais();
+        List<String> profissionais = controleDeServicos.gClienteEmpresa()
         if (profissionais.isEmpty()) {
             System.out.println("Nenhum profissional registrado.");
         } else {
@@ -435,7 +437,7 @@ private void gerenciarProfissionais() {
 
     private void contratarProfissional() {
         System.out.println("=================================");
-        System.out.println("    Adicionar Profissional       ");
+        System.out.println(" Adicionar Profissional ");
         System.out.println("=================================");
         System.out.println("Digite o tipo do profissional: ");
         String tipo = scanner.next();
@@ -446,13 +448,13 @@ private void gerenciarProfissionais() {
         System.out.println("Digite a especialidade do profissional: ");
         String especialidade = scanner.next();
 
-        controleServicos.contratarProfissional(tipo, nome, especialidade);
+        controleDeServicos.contratarProfissional(nome, especialidade);
         System.out.println("Profissional adicionado com sucesso!");
     }
 
     private void editarProfissional() {
         System.out.println("=================================");
-        System.out.println("      Editar Profissional        ");
+        System.out.println(" Editar Profissional ");
         System.out.println("=================================");
         System.out.println("Digite o índice do profissional a ser editado: ");
         int index = scanner.nextInt();
@@ -472,7 +474,7 @@ private void gerenciarProfissionais() {
 
     private void removerProfissional() {
         System.out.println("=================================");
-        System.out.println("     Remover Profissional        ");
+        System.out.println(" Remover Profissional ");
         System.out.println("=================================");
         System.out.println("Digite o índice do profissional a ser removido: ");
         int index = scanner.nextInt();
