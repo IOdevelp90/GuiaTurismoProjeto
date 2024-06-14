@@ -11,6 +11,8 @@ public class ControleClientes {
         this.clientes = new ArrayList<>();
     }
 
+    
+
     public boolean login(String username, String senha) {
         for (Cliente cliente : clientes) {
             if (cliente.getUsername().equals(username) && cliente.getSenha().equals(senha)) {
@@ -53,5 +55,11 @@ public class ControleClientes {
             usernames.add(cliente.getUsername());
         }
         return usernames;
+    }
+
+
+
+    public List<Cliente> getClientes() {
+        return clientes;
     }
 }

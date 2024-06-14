@@ -3,6 +3,7 @@ package br.edu.up.telas;
 import br.edu.up.controle.ControleClientes;
 import br.edu.up.controle.ControleComunidade;
 import br.edu.up.controle.ControleDeServicos;
+import br.edu.up.daos.GerenciadorDeArquivos;
 
 import java.util.List;
 import java.util.Scanner;
@@ -13,6 +14,9 @@ public class CapyturApp {
 
     ControleComunidade controleComunidade = new ControleComunidade();
     ControleDeServicos controleDeServicos = new ControleDeServicos();
+    
+
+    
 
     ControleClientes controleClientes = new ControleClientes();
     private Scanner scanner = new Scanner(System.in);
@@ -105,9 +109,11 @@ public class CapyturApp {
             System.out.println("2 - Procurar Viagens");
             System.out.println("3 - Serviços");
             if (isAdmin) {
+                
                 System.out.println("4 - Gerenciar Clientes");
                 System.out.println("5 - Gerenciar Profissionais");
-                System.out.println("6 - Sair");
+                System.out.println("6 - Gravar clientes");
+                System.out.println("7 - Sair ");
             } else {
                 System.out.println("6 - Sair");
             }
@@ -140,8 +146,13 @@ public class CapyturApp {
                         System.out.println("Opção inválida!");
                     }
                     break;
-                case 6:
-                    System.out.println("Até mais!");
+                    case 6:
+                    System.out.println("Digite o nome do arquivo para salvar os clientes:");
+                    String nomeArquivo = scanner.next();
+                    GerenciadorDeArquivos.salvarClientesParaArquivo(nomeArquivo, controleClientes.getClientes());
+                    break;
+                case 7:
+                System.out.println("Até mais!");
                     break;
                 default:
                     System.out.println("Opção inválida!");

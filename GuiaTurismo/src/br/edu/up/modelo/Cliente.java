@@ -1,5 +1,9 @@
 package br.edu.up.modelo;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 public class Cliente {
   private String nome;
   private String username;
@@ -43,5 +47,25 @@ public class Cliente {
 
   public void setAdmin(boolean admin) {
     isAdmin = admin;
+  }
+  public void salvarParaArquivo(String nomeDoArquivo) {
+        try {
+            FileWriter arquivo = new FileWriter(nomeDoArquivo);
+            PrintWriter gravador = new PrintWriter(arquivo);
+
+            gravador.println("Nome: " + nome);
+            gravador.println("Username: " + username);
+            gravador.println("Senha: " + senha);
+            gravador.println("É admin: " + isAdmin);
+
+            gravador.close();
+            System.out.println("Cliente salvo com sucesso em " + nomeDoArquivo);
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar cliente em arquivo: " + e.getMessage());
+        }
+    }
+
+    public String toCSV() {
+      return "Nome:"+nome + "," +"Username:"+ username + "," + "Senha:"+senha + "," +"Admin:"+ isAdmin;
   }
 }
