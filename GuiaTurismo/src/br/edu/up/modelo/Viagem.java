@@ -5,11 +5,13 @@ public class Viagem {
     private String destino;
     private String descricao;
     private String data;
+    private String local;
 
-    public Viagem(String destino, String descricao, String data) {
+    public Viagem(String destino, String descricao, String data, String local) {
         this.destino = destino;
         this.descricao = descricao;
         this.data = data;
+        this.local = local;
     }
 
     public String getDestino() {
@@ -36,9 +38,16 @@ public class Viagem {
         this.data = data;
     }
 
-    @Override
-    public String toString() {
-        return "Viagem [destino=" + destino + ", descricao=" + descricao + ", data=" + data + "]";
+    public String getLocal() {
+        return local;
     }
 
+    public void setLocal(String local) {
+        this.local = local;
+    }
+
+    @Override
+    public String toString() {
+        return "Viagem [destino=" + destino + ", descricao=" + descricao + ", data=" + data + ", local=" + local + "]";
+    }
 }

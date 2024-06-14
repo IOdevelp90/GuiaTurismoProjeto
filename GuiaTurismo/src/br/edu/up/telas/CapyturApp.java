@@ -3,7 +3,6 @@ package br.edu.up.telas;
 import br.edu.up.controle.ControleClientes;
 import br.edu.up.controle.ControleComunidade;
 import br.edu.up.controle.ControleDeServicos;
-import br.edu.up.modelo.Servico;
 
 import java.util.List;
 import java.util.Scanner;
@@ -425,7 +424,8 @@ public class CapyturApp {
         System.out.println(" Lista de Profissionais ");
         System.out.println("=================================");
         System.out.println("Profissionais registrados: ");
-        List<String> profissionais = controleDeServicos.gClienteEmpresa()
+        List<String> profissionais = controleDeServicos.listarProfissionais();
+        ;
         if (profissionais.isEmpty()) {
             System.out.println("Nenhum profissional registrado.");
         } else {
@@ -439,8 +439,6 @@ public class CapyturApp {
         System.out.println("=================================");
         System.out.println(" Adicionar Profissional ");
         System.out.println("=================================");
-        System.out.println("Digite o tipo do profissional: ");
-        String tipo = scanner.next();
 
         System.out.println("Digite o nome do profissional: ");
         String nome = scanner.next();
@@ -459,16 +457,13 @@ public class CapyturApp {
         System.out.println("Digite o índice do profissional a ser editado: ");
         int index = scanner.nextInt();
 
-        System.out.println("Digite o novo tipo do profissional: ");
-        String tipo = scanner.next();
-
         System.out.println("Digite o novo nome do profissional: ");
         String nome = scanner.next();
 
         System.out.println("Digite a nova especialidade do profissional: ");
         String especialidade = scanner.next();
 
-        controleServicos.editarProfissional(index, tipo, nome, especialidade);
+        controleDeServicos.editarProfissional(index, nome, especialidade);
         System.out.println("Profissional editado com sucesso!");
     }
 
@@ -479,7 +474,7 @@ public class CapyturApp {
         System.out.println("Digite o índice do profissional a ser removido: ");
         int index = scanner.nextInt();
 
-        controleServicos.removerProfissional(index);
+        controleDeServicos.removerProfissional(index);
         System.out.println("Profissional removido com sucesso!");
     }
 
