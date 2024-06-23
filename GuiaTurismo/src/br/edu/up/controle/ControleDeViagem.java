@@ -1,44 +1,64 @@
 package br.edu.up.controle;
 
+import br.edu.up.modelo.Viagem;
+import br.edu.up.modelo.Avaliacao;
+import br.edu.up.modelo.Cliente;
+
 import java.util.ArrayList;
 import java.util.List;
-import br.edu.up.modelo.Viagem;
 
 public class ControleDeViagem {
+    private List<Viagem> viagens = new ArrayList<>();
+    private List<Avaliacao> avaliacoes = new ArrayList<>();
 
-    public ControleDeViagem(List<Viagem> viagens) {
+    public void adicionarViagem(Viagem viagem, Cliente clienteLogado) {
+        viagem.addCliente(clienteLogado);
+        viagens.add(viagem);    
+    }
+    public void adicionarAvaliacao(Viagem viagem, Avaliacao avaliacao) {
+        for (Viagem v : viagens) {
+            if (v.equals(viagem)) {
+                v.addAvaliacao(avaliacao);
+                avaliacoes.add(avaliacao); 
+                return;
+            }
+        }
+        System.out.println("Viagem não encontrada para adicionar a avaliação.");
+    }
+
+    public List<Viagem> listarViagens() {
+        return viagens;
+    }
+    
+    public List<Avaliacao> getAvaliacoes() {
+        return avaliacoes;
+    }
+    
+    public List<Viagem> procurarViagens(String destino) {
+        List<Viagem> resultado = new ArrayList<>();
+        for (Viagem viagem : viagens) {
+            if (viagem.getDestino().equalsIgnoreCase(destino)) {
+                resultado.add(viagem);
+            }
+        }
+        return resultado;
+    }
+
+    public List<Viagem> getViagens() {
+        return viagens;
+    }
+
+    public void setViagens(List<Viagem> viagens) {
         this.viagens = viagens;
     }
-
-    List<Viagem> viagens = new ArrayList<>();
-
-    public void adicionarViagem() {
-        Viagem viagem = new Viagem("Destino padrão", "Descrição padrão", "Data padrão", "Local padrão");
-        viagens.add(viagem);
-    }
-
-    public void removerViagem(Viagem viagem) {
-        viagens.remove(viagem);
-    }
-
-    public List<Viagem> listaViagem() {
-        return new ArrayList<>(viagens);
-    }
-
-    public List<Viagem> buscarViagemPorLocal(String local) {
-        List<Viagem> viagemsEncontrada = new ArrayList<>();
+    public List<Viagem> listarViagensCliente(Cliente cliente) {
+        List<Viagem> viagensCliente = new ArrayList<>();
         for (Viagem viagem : viagens) {
-            viagemsEncontrada.add(viagem);
+            if (viagem.getClientes().contains(cliente)) {
+                viagensCliente.add(viagem);
+            }
         }
-        return viagemsEncontrada;
+        return viagensCliente;
     }
-
-    public List<Viagem> buscarViagemPorData(String data) {
-        List<Viagem> viagensEncontrada = new ArrayList<>();
-        for (Viagem viagem : viagens) {
-            viagensEncontrada.add(viagem);
-        }
-        return viagensEncontrada;
-    }
-
+    
 }

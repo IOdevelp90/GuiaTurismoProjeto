@@ -1,13 +1,21 @@
 package br.edu.up.modelo;
 
-public class Avaliacao {  
-    private String titulo;
-    private String conteudo;
+public class Avaliacao {
     private int nota;
+    private Viagem viagem;
+    private String titulo;
 
-    public Avaliacao(String titulo, String conteudo, int nota) {
+    public Avaliacao(int nota, Viagem viagem, String titulo) {
+        this.nota = nota;
+        this.viagem = viagem;
         this.titulo = titulo;
-        this.conteudo = conteudo;
+    }
+
+    public int getNota() {
+        return nota;
+    }
+
+    public void setNota(int nota) {
         this.nota = nota;
     }
 
@@ -19,22 +27,16 @@ public class Avaliacao {
         this.titulo = titulo;
     }
 
-    public String getConteudo() {
-        return conteudo;
+    public Viagem getViagem() {
+        return viagem;
     }
 
-    public void setConteudo(String conteudo) {
-        this.conteudo = conteudo;
+    public void setViagem(Viagem viagem) {
+        this.viagem = viagem;
     }
 
-    public int getNota() {
-        return nota;
+    @Override
+    public String toString() {
+        return "Avaliacao [nota=" + nota + ", viagem=" + viagem + ", titulo=" + titulo + "]";
     }
-
-    public void setNota(int nota) {
-        this.nota = nota;
-    }
-    
-    
-
 }

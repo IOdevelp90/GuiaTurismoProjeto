@@ -1,41 +1,47 @@
 package br.edu.up.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class Servico {
-   
     private String nome;
-    private String descricao;
-    private double preco;
-    
-    public Servico( String nome, String descricao, double preco) {
+    private String especialidade;
+    private Profissional prestador; // Novo atributo para armazenar o prestador do serviço
+    private List<Cliente> solicitantes;
+
+    public Servico(String nome, String especialidade, Profissional prestador) {
         this.nome = nome;
-        this.descricao = descricao;
-        this.preco = preco;
+        this.especialidade = especialidade;
+        this.prestador = prestador;
+        this.solicitantes = new ArrayList<>();
     }
+
     public String getNome() {
         return nome;
     }
-    public void setNome(String nome) {
-        this.nome = nome;
+
+    public String getEspecialidade() {
+        return especialidade;
     }
-    public String getDescricao() {
-        return descricao;
+
+    public Profissional getPrestador() {
+        return prestador;
     }
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+
+    public List<Cliente> getSolicitantes() {
+        return solicitantes;
     }
-    public double getPreco() {
-        return preco;
+
+    public void adicionarSolicitante(Cliente cliente) {
+        solicitantes.add(cliente);
     }
-    public void setPreco(double preco) {
-        this.preco = preco;
-    }
+
     @Override
     public String toString() {
-        return "Servico [nome=" + nome + ", descricao=" + descricao + ", preco=" + preco + "]";
+        return "Servico{" +
+                "nome='" + nome + '\'' +
+                ", especialidade='" + especialidade + '\'' +
+                ", prestador=" + prestador +
+                '}';
     }
-
-    
 }
-
-
